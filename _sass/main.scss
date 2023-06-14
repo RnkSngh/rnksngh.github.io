@@ -1,0 +1,39 @@
+/* Vars */
+$text: gray;
+$highlightedText: lavender;
+
+a.current, a.current:visited {
+  color: $highlightedText;
+}
+
+a:visited{
+  color: inherit; 
+}
+
+.current {
+  color: gray;
+}
+
+.notCurrent {
+  color: pink;
+}
+
+
+
+.images {
+  width: 1000px;
+}
+
+.smallImage {
+  width: 300px;
+}
+
+h1 {
+  color: gray;
+}
+
+p {
+  color: gray;
+}
+
+

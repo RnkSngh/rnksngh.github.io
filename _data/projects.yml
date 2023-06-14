@@ -1,0 +1,14 @@
+- title: Double Slit Experiment 
+  url: https://github.com/RnkSngh/Double-Slit-Experiment 
+  description: A MATLAB script for modeling and animating the double slit experiment using the Finite Element Method and Euler averages 
+  thumbnail: /assets/images/Double_slit_demo.gif
+- title: Neural Nets from Scratch 
+  url: https://github.com/RnkSngh/Neural-Nets-From-Scratch
+  description: A simple implementation of a neural net in a python notebook 
+  thumbnail: /assets/images/neural_nets_from_scratch.png
+- title: Solving Physics Using Reinforcement Learning
+  url: https://github.com/RnkSngh/Unity-Physics-Reinforcement-Learning 
+  description: Training some reinforcement learning agents in unity ml agents 
+  thumbnail: /assets/images/solving_physics_using_reinforcement_learning.gif
+
+
