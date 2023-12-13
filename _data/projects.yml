@@ -1,7 +1,11 @@
-- title: Double Slit Experiment 
-  url: https://github.com/RnkSngh/Double-Slit-Experiment 
-  description: A MATLAB script for modeling and animating the double slit experiment using the Finite Element Method and Euler averages 
-  thumbnail: /assets/images/Double_slit_demo.gif
+- title: Trikona
+  url: https://github.com/RnkSngh/trikona
+  description:  Interactive 3-d Sierpinski triangles in Haskell
+  thumbnail: /assets/images/Trikona_demo.gif 
+- title: ScribbleSwap 
+  url: http://journaling-webapp.vercel.app
+  description: A simple webapp to journal and connect with people! 
+  thumbnail: /assets/images/scribbleSwap_demo.png
 - title: Neural Nets from Scratch 
   url: https://github.com/RnkSngh/Neural-Nets-From-Scratch
   description: A simple implementation of a neural net in a python notebook 
@@ -10,5 +14,15 @@
   url: https://github.com/RnkSngh/Unity-Physics-Reinforcement-Learning 
   description: Training some reinforcement learning agents in unity ml agents 
   thumbnail: /assets/images/solving_physics_using_reinforcement_learning.gif
-
-
+- title: Arbitrage Trading in Python 
+  url: https://github.com/RnkSngh/Arbitrage-Bot/tree/master
+  description: A Python project to find and execute Arbitrage opportunities 
+  thumbnail: /assets/images/Arb_demo.png
+- title: halite bots
+  url: https://github.com/RnkSngh/Halite-Kaggle-Competition
+  description: Participating in the Halite Kaggle competition with reinforcement learning agents
+  thumbnail: /assets/images/halite_demo.gif
+- title: Double Slit Experiment 
+  url: https://github.com/RnkSngh/Double-Slit-Experiment 
+  description: A MATLAB script for modeling and animating the double slit experiment using the Finite Element Method and Euler averages 
+  thumbnail: /assets/images/Double_slit_demo.gif
