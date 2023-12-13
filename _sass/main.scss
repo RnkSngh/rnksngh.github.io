@@ -1,38 +1,71 @@
 /* Vars */
-$text: gray;
-$highlightedText: lavender;
+$backgroundColor: white;
+$text: #3626a7;
+$link: salmon;
+$highlightedText: salmon;
 
-a.current, a.current:visited {
-  color: $highlightedText;
+a,
+a:visited,
+a:hover,
+a:active {
+  color: $link;
+  text-decoration: none;
 }
 
-a:visited{
-  color: inherit; 
+nav {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a.current {
+  color: $text;
+  font-weight: bold;
+  background: $highlightedText;
+  padding: 5px;
 }
 
-.current {
-  color: gray;
+a.notCurrent {
+  color: $text;
+  padding: 5px;
 }
 
-.notCurrent {
-  color: pink;
+.icon {
+  color: $text;
+  // float: right;
+  padding: 0.3rem;
 }
 
-
+ul {
+  list-style-type: none;
+}
 
 .images {
-  width: 500px;
+  width: 30rem;
   border: 3px dashed black;
 }
 
 .smallImage {
-  width: 300px;
+  width: 30rem;
 }
 
-.mainPage{
-  background-color: pink;
-  width: 1500px;
+.projectList {
+  width: min-content;
   margin: auto;
 }
 
-  
+html {
+  font-size: 17pt;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  color: $text;
+  padding: 0.5rem;
+  max-width: 50rem;
+  margin: auto;
+  background-color: $backgroundColor;
+}
