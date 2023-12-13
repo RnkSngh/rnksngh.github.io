@@ -1,7 +1,12 @@
-<nav>
-    <div >
-  {% for item in site.data.navigation %}
-    <a href="{{ item.link }}" {% if page.url == item.link %}class="current" {% else %} class="notCurrent"  {% endif %}>{{ item.name }}</a>
-  {% endfor %}
+<nav >
+    <div>
+      {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% else %} class="notCurrent"  {% endif %}>{{ item.name }}</a>
+      {% endfor %}
     </div>
+    <div>
+      <span><a  href="https://www.linkedin.com/in/raunak-singh/" ><i class="fab fa-linkedin fa-2x icon" ></i></a></span>
+      <span><a   href="https://www.twitter.com/rnksngh" ><i class="fab fa-twitter fa-2x icon"></i></a></span>
+      <span><a  href="https://www.github.com/rnksngh" ><i class="fab fa-github fa-2x icon" ></i></a></span>
+  </div>
 </nav>
