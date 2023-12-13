@@ -21,19 +21,18 @@ a:visited{
 
 
 .images {
-  width: 1000px;
+  width: 500px;
+  border: 3px dashed black;
 }
 
 .smallImage {
   width: 300px;
 }
 
-h1 {
-  color: gray;
+.mainPage{
+  background-color: pink;
+  width: 1500px;
+  margin: auto;
 }
 
-p {
-  color: gray;
-}
-
-
+  

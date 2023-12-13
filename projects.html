@@ -5,14 +5,14 @@ title: Blog
 
 <h1>Projects</h1>
 <p>
-  My scatterbrain has started and neglected many projects. These are a featured few
-  which have made it to somewhat completion
+  My scatterbrain has started and neglected many projects. These are a featured
+  few which have made it to somewhat completion
 </p>
 <ul>
   {% for project in site.data.projects %}
   <li>
     <h2><a href="{{ project.url }}">{{ project.title}}</a></h2>
-    <p> {{ project.description }} </p>
+    <p>{{ project.description }}</p>
     <image src="{{project.thumbnail}}" class="smallImage"></image>
   </li>
   {% endfor %}
