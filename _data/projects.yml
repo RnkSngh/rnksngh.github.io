@@ -18,10 +18,10 @@
   url: https://github.com/RnkSngh/Arbitrage-Bot/tree/master
   description: A Python project to find and execute Arbitrage opportunities 
   thumbnail: /assets/images/Arb_demo.png
-- title: halite bots
+- title: Halite
   url: https://github.com/RnkSngh/Halite-Kaggle-Competition
   description: Participating in the Halite Kaggle competition with reinforcement learning agents
-  thumbnail: /assets/images/halite_demo.gif
+  thumbnail: /assets/images/Halite_demo.gif
 - title: Double Slit Experiment 
   url: https://github.com/RnkSngh/Double-Slit-Experiment 
   description: A MATLAB script for modeling and animating the double slit experiment using the Finite Element Method and Euler averages 
