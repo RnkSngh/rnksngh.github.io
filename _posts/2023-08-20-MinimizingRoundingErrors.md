@@ -2,13 +2,13 @@
 title: Arithmetic in Solidity is a Headache
 ---
 
-TLDR: Dealing with Solidity arithmetic is non-trivial. I built a tiny library to help with this for JavaScript.
+TLDR: Dealing with Solidity arithmetic is non-trivial. I built a [tiny JavaScript library](https://www.npmjs.com/package/Solidity-fixed-point-arithmetic) to help with this.
 
 Solidity is weird because it doesn't have a float primitive. I imagine this is because integer types are much easier to reason about and implement. Smart contracts are designed to be auditable and transparent and Solidity opcodes consume crypto to run on the blockchain, so adding a float primitive might add more complexity than it's worth.
 
 ## Decimal Formatting
 
-But what happens when we need to deal with decimals? The standard solution is to use large integers, and allocate the right most zeroes as the decimals. ERC20 tokens have a required [`decimal`](https://docs.openzeppelin.com/contracts/4.x/erc20#a-note-on-decimals) field which represents the amount of digits allocated for decimals. For most tokens (e.g. [wrapped Ether](https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2)), this is is equal to 18 - meaning the 18 right most digits of a token balance represent the decimals. Tokens which don't need as much precision can have lower decimals (e.g. USDC, which has 6 decimals). For example, a balance of 5 Wrapped Ether would be represented as 5e18 (that is, 5 with 18 zeroes following it). This is basically [fixed point arithmetic](https://en.wikipedia.org/wiki/Fixed-point_arithmetic), except we don't have the benefit of a language implementing the abstraction for us, so we're stuck with having to deal with this formatting ourselves.
+But what happens when we need to deal with decimals? The standard solution is to use large integers, and allocate the right most digits as the decimals. ERC20 tokens have a required [`decimal`](https://docs.openzeppelin.com/contracts/4.x/erc20#a-note-on-decimals) field which represents the amount of digits allocated for decimals. For most tokens (e.g. [wrapped Ether](https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2)), this is is equal to 18 - meaning the 18 right most digits of a token balance represent the decimals. Tokens which don't need as much precision can have lower decimals (e.g. USDC, which has 6 decimals). For example, a balance of 5 Wrapped Ether would be represented as 5e18 (that is, 5 with 18 zeroes following it). This is basically [fixed point arithmetic](https://en.wikipedia.org/wiki/Fixed-point_arithmetic), except we don't have the benefit of a language implementing the abstraction for us, so we're stuck with having to deal with this formatting ourselves.
 
 ### Solidity Arithmetic Libraries
 
@@ -26,7 +26,7 @@ With fixed point arithmetic and using Solidity libraries, this becomes slightly 
 
 ### Additional Accuracy
 
-If you're dividing or multiplying by really large numbers, you can lose a lot of precision. One way to combat this is to store intermediate state that is in a higher decimal precision than the operation inputs and outputs. For example, if you're multiplying or dividing balances that are formatted to 18 decimals, you can gain some precision by first formatting the inputs to 27 decimals by padding 9 extra zeroes, doing the operations, and then formatting back to 18 decimals by removing the padding of 9 zeroes.
+If you're dividing or multiplying by really large numbers, you can lose a lot of precision. One way to combat this is to store intermediate state that is in a higher decimal precision than the operation inputs and outputs. For example, if you're multiplying or dividing balances that are formatted to 18 decimals, you can gain some precision by first formatting the inputs to 27 decimals by padding 9 extra digits, doing the operations, and then formatting back to 18 decimals by removing the padding of 9 digits.
 
 ## Precision Bounds and Significant Figures
 
