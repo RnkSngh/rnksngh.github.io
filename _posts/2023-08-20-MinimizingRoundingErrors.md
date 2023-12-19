@@ -2,7 +2,7 @@
 title: Arithmetic in Solidity is a Headache
 ---
 
-TLDR: Dealing with Solidity arithmetic is non-trivial. I built a [tiny JavaScript library](https://www.npmjs.com/package/Solidity-fixed-point-arithmetic) to help with this.
+TLDR: Dealing with Solidity arithmetic is non-trivial. I built a [tiny JavaScript library](https://www.npmjs.com/package/solidity-fixed-point-arithmetic) to help with this.
 
 Solidity is weird because it doesn't have a float primitive. I imagine this is because integer types are much easier to reason about and implement. Smart contracts are designed to be auditable and transparent and Solidity opcodes consume crypto to run on the blockchain, so adding a float primitive might add more complexity than it's worth.
 
