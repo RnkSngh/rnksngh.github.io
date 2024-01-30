@@ -40,14 +40,15 @@ A big part of our overall security hinges on the security of the data availabili
 
 More concretely, the on-chain (on the Ethereum chain, that is) implementation contract would look something like this: 
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; " class="codeDiv">
   <code >
     <pre>
   contract OurRollupQueue{
     rootMerkleHash: bytes32; <span>// Stores the hash of the merkle root </span>
     <span>// This function can be called by the sequencer to submit new blocks </span>
     function newBlock(bytes[] calldata transactions, bytes calldata rootmerkleHash ) onlySequencer {
-        rootMerkleHash = newMerkleHash; <span>// Only the new merkle hash of the state is stored on-chain; we don't actually store the transactions on here!</span>
+        rootMerkleHash = newMerkleHash; <span>// Only the new merkle hash of the state is stored on-chain; 
+        // we don't actually store the transactions on here!</span>
     } 
   }
     </pre>
@@ -88,7 +89,7 @@ To mitigate this, we can have what has been referred to known as an *enshrined* 
 The bridge contract deployed on Ethereum L1 might look something like this: 
 
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6;" class="codeDiv">
   <code >
     <pre>
   contract RollupBridge{ <span>// This contract will be deployed on L1 and is where users deposit their tokens they want bridged </span>

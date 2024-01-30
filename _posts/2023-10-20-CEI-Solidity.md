@@ -18,7 +18,7 @@ Everyone pools their money into the same smart contract, and gets shares in retu
 
 A (seemingly) sensible withdraw function for this contract might look like this:
 
-<div>
+<div class="codeDiv">
   <code >
     <pre>
 
@@ -39,7 +39,7 @@ A (seemingly) sensible withdraw function for this contract might look like this:
 
 Let's go through the `withdraw` function line-by-line:
 
-<div>
+<div class="codeDiv">
   <code >
     <pre>
     <span>// Reverts the tx if you don't have enough shares</span>
@@ -52,7 +52,7 @@ Let's go through the `withdraw` function line-by-line:
 
 This line ***checks*** that the amount of shares any user can withdraw is less than the amount they own, and reverts the transaction if anyone tries to withdraw more shares than they own. Pretty straightforward.
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6;>
   <code >
     <pre>
     <span>// Transfer ETH to sender </span>
@@ -63,7 +63,7 @@ This line ***checks*** that the amount of shares any user can withdraw is less t
 
 `msg.sender.call{value:amount}` is Solidity code for "send `amount` of ETH to the transaction sender (i.e. the person who is withdrawing their shares)". We decrement the user's shares in the next line, so we send them their ETH on this line. We send it by ***interacting*** with the sender of the transaction. Also pretty straightforward.
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; "class="codeDiv" >
   <code >
     <pre>
     <span>// Update share accounting </span>
@@ -86,7 +86,7 @@ Specifically, an attacking contract can wreak havoc if it recursively calls the 
 
 In code, this is how the reentrancy would look like:
 
-<div >
+<div class="codeDiv" >
   <code style="max-width:100px">
     <pre >
     <span >// Attacker starts by calling the withdraw function </span>
@@ -131,7 +131,7 @@ CEI is a pattern that refers to the ordering of each of the 3 lines. Following t
 
 For our example, code that correctly follows the CEI pattern would look like this:
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; " class="codeDiv" >
   <code >
     <pre>
   function withdraw(uint amount) public {
@@ -145,7 +145,7 @@ For our example, code that correctly follows the CEI pattern would look like thi
 
 With this code, even if an attacking contract recursively calls the `withdraw` function, it would look like this:
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; " class="codeDiv" >
   <code >
     <pre>
     <span>// Attacker calls the withdraw function </span>
@@ -176,7 +176,7 @@ If you really think about it, CEI isn't the only pattern which you have to follo
 
 I-E-C:
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; " class="codeDiv">
   <code >
     <pre>
     function withdraw(uint amount) public {
@@ -192,7 +192,7 @@ In this case, an attacker can technically re-enter the contract after the first 
 
 I-C-E:
 
-<div style="background-color: #FAF9F6; ">
+<div style="background-color: #FAF9F6; " class="codeDiv">
   <code >
     <pre>
     function withdraw(uint amount) public {
