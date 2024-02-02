@@ -52,7 +52,7 @@ Let's go through the `withdraw` function line-by-line:
 
 This line ***checks*** that the amount of shares any user can withdraw is less than the amount they own, and reverts the transaction if anyone tries to withdraw more shares than they own. Pretty straightforward.
 
-<div style="background-color: #FAF9F6;>
+<div class="codeDiv">
   <code >
     <pre>
     <span>// Transfer ETH to sender </span>
@@ -63,7 +63,7 @@ This line ***checks*** that the amount of shares any user can withdraw is less t
 
 `msg.sender.call{value:amount}` is Solidity code for "send `amount` of ETH to the transaction sender (i.e. the person who is withdrawing their shares)". We decrement the user's shares in the next line, so we send them their ETH on this line. We send it by ***interacting*** with the sender of the transaction. Also pretty straightforward.
 
-<div style="background-color: #FAF9F6; "class="codeDiv" >
+<div class="codeDiv" >
   <code >
     <pre>
     <span>// Update share accounting </span>
