@@ -46,6 +46,25 @@ ul {
   list-style-type: none;
 }
 
+.workHistory {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.workHistory li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.workHistory li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: $link;
+}
+
 .images {
   width: 30rem;
   border: 3px dashed black;

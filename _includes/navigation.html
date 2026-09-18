@@ -1,7 +1,13 @@
 <nav >
     <div>
       {% for item in site.data.navigation %}
-        <a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% else %} class="notCurrent"  {% endif %}>{{ item.name }}</a>
+        {% assign isCurrent = false %}
+        {% if page.url == item.link %}
+          {% assign isCurrent = true %}
+        {% elsif item.link == '/blog.html' and page.layout == 'post' %}
+          {% assign isCurrent = true %}
+        {% endif %}
+        <a href="{{ item.link }}" {% if isCurrent %} class="current" {% else %} class="notCurrent"  {% endif %}>{{ item.name }}</a>
       {% endfor %}
     </div>
     <div>
