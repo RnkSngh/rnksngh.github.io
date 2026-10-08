@@ -3,43 +3,84 @@ layout: default
 title: Home 
 ---
 
+<div class="home">
 <h1>About</h1>
 
 <p>
   I'm Raunak, and am currently a software engineer at
-  <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://avantos.ai/&ved=2ahUKEwiPv4DfgfeWAxU8GFkFHcrlDvUQFnoECA8QAQ&usg=AOvVaw0gBlPIwTODzOhNKlBJg2dK"> Avantos </a>.
+  <a href="https://avantos.ai">Avantos</a>.
 </p>
+
+
+{% include pixel-icons.html %}
+<p>In my short stint as an engineer, I've:</p>
+<div class="rotator" data-interval="3000" data-pause="10000">
+  <ul class="workHistory rotatorItems">
+    <li>
+      <span class="frame crossedOff"><svg class="pixelIcon" aria-hidden="true"><use href="#px-radiation" /></svg><s> Introduced vulnerabilities which could've resulted in more than <span class="highlight">$200,000,000</span> in drained funds</s></span>
+      <span class="frame"><svg class="pixelIcon" aria-hidden="true"><use href="#px-crown" /></svg>Successfully led smart contracts & scaled infra backing <span class="highlight">$3,000,000,000+</span> (and counting).</span>
+    </li>
+    <li>
+      <span class="frame crossedOff"><svg class="pixelIcon" aria-hidden="true"><use href="#px-trash" /></svg><s>Yeeted horrendous, awful, tech debt ridden code into production environments</s></span>
+      <span class="frame plainLinks"><svg class="pixelIcon" aria-hidden="true"><use href="#px-rocket" /></svg><a href="https://www.paulgraham.com/ds.html">Built 0->1</a> enough times to know where cutting corners moves the needle</span>
+    </li>
+    <li>
+      <span class="frame crossedOff"><svg class="pixelIcon" aria-hidden="true"><use href="#px-crosshairs" /></svg><s>Annoyed founders by spending way too long being nerdsniped finding the right abstractions</s></span>
+      <span class="frame"><svg class="pixelIcon" aria-hidden="true"><use href="#px-exponential" /></svg>Scaled 1->30 on a team who had done it many times before </span>
+    </li>
+  </ul>
+  <div class="rotatorControls" hidden>
+    <div class="rotatorProgress" aria-hidden="true">
+      <div class="rotatorProgressFill" data-frame="0"></div>
+      <div class="rotatorProgressFill" data-frame="1"></div>
+    </div>
+    <div class="rotatorButtons" role="group" aria-label="Version">
+      <button type="button" data-frame="0">[MVP]</button>
+      <button type="button" data-frame="1">[Unicorn]</button>
+    </div>
+    <div class="rotatorProgress" aria-hidden="true">
+      <div class="rotatorProgressFill" data-frame="0"></div>
+      <div class="rotatorProgressFill" data-frame="1"></div>
+    </div>
+  </div>
+</div>
 
 <p>
-  I've shipped bugs & vulnerabilities which could have resulted in hundreds of millions of dollars in damages. I've also fixed bugs before they could <b>actually</b> could cause that damage. I've led development of infra & smart contracts which have successfully secured billions of dollars and counting.
+  I'm based out of NYC  - if you're in the area, let's  
+  grab coffee!
 </p>
 
-<p>Before Avantos, I:</p>
-<ul class="workHistory">
+<p> If you want to lose some brain cells, <a href="/blog">you can view my [blog] here</a></p>
+
+<h2>My Formation</h2>
+
+<p>Previously:</p>
+<ul class="workHistory plainLinks">
   <li>Led smart contracts & did a ton of infra at <a href="">Polymer Labs</a></li>
   <li>Smart contracts full time at <a href="https://www.mimo.capital/">MIMO</a></li>
   <li>Early Fullstack eng at <a href="https://www.cultiveit.io">Cultiveit</a>, a start-up focused on addressing burnout.</li>
 </ul>
-
 <p>
   I owe a significant part of my technical & personal growth to the incredibly supportive Recurse Center where I
-  worked on some <a href="/projects"> projects </a>. If I'm seeling you, 
-  <a href="https://www.recurse.com/faq">here's more</a>.
+  worked on some <a href="/projects">[projects]</a>. If I'm seeling you, you should do a batch. 
+  <a href="https://www.recurse.com/faq">Here's more on the Recurse Center.</a>
+</p>
+<p>
+  In another life, I was a Civil engineering consultant for Kimley Horn where I worked on some smart infrastructure design for Los Angeles.
+  There's crazy parallels between civil and software engineering, so don't ask me about it unless you have some time to kill.
 </p>
 
-<p>In another life, I was a Civil engineering consultant for Kimley Horn where I worked on some smart infrastructure design for Los Angeles. </p> There's crazy parallels between civil engineering and software engineering that few people can appreciate. 
 
 <p>
-  I'm currently based in Crown Heights in Brooklyn - if you're in the area, let's
-  grab coffee!
-</p>
-
-<p>
-  I maintain a very sophisticated vibe here on my blog. Here's a picture of a
-  random error message to show you how sophisticated I am:
+  I maintain a very sophisticated vibe here on my blog, so here's a picture of a
+  random error message:
 </p>
 
 <image src="./assets/images/ErrorVibe.png" class="images"> </image>
 
-<p> If you want to lose some brain cells, <a href="/blog"> you can view my blog here</a> </p>
-</p><p>Views are my own.</p>
+<p><span class="highlight">Views are my own</span></p>
+
+<p>Go Bears.</p>
+
+<script src="/assets/js/rotator.js" defer></script>
+</div>

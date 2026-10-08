@@ -25,6 +25,14 @@ a.current {
   padding: 5px;
 }
 
+a.current::before {
+  content: "[";
+}
+
+a.current::after {
+  content: "]";
+}
+
 a.notCurrent {
   color: $text;
   padding: 5px;
@@ -59,10 +67,13 @@ ul {
 }
 
 .workHistory li::before {
-  content: "▸";
+  content: "";
   position: absolute;
   left: 0;
-  color: $link;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  background: $link;
 }
 
 .images {
@@ -93,4 +104,161 @@ body {
   max-width: 50rem;
   margin: auto;
   background-color: $backgroundColor;
+}
+
+.rotatorItems > li {
+  padding-left: 0;
+}
+
+.rotatorItems > li::before {
+  content: none;
+}
+
+.rotatorItems .frame {
+  display: block;
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.rotatorItems .pixelIcon {
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 18px;
+  height: 18px;
+  fill: $link;
+  shape-rendering: crispEdges;
+}
+
+.rotatorItems .frame.crossedOff {
+  color: mix($text, gray, 40%);
+  opacity: 0.7;
+}
+
+.rotating .rotatorItems > li {
+  display: grid;
+}
+
+.rotating .rotatorItems .frame {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+.rotating .rotatorItems .frame.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rotating .rotatorItems .frame.crossedOff.active {
+  opacity: 0.7;
+}
+
+.rotating .rotatorItems > li:nth-child(2) .frame {
+  transition-delay: 0.1s;
+}
+
+.rotating .rotatorItems > li:nth-child(3) .frame {
+  transition-delay: 0.2s;
+}
+
+.rotatorControls {
+  margin-bottom: 1rem;
+}
+
+.rotatorControls[hidden] {
+  display: none;
+}
+
+.rotatorProgress {
+  position: relative;
+  height: 4px;
+  background: $backgroundColor;
+  animation: barFlicker 2.7s steps(1, end) infinite;
+}
+
+// Irregular dips in brightness, like an old screen.
+@keyframes barFlicker {
+  0% { opacity: 1; }
+  6% { opacity: 0.55; }
+  8% { opacity: 1; }
+  41% { opacity: 0.8; }
+  43% { opacity: 1; }
+  44% { opacity: 0.65; }
+  46% { opacity: 1; }
+  78% { opacity: 0.85; }
+  80% { opacity: 1; }
+}
+
+.rotatorProgressFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: #c8c8c8;
+}
+
+.rotatorProgressFill[data-frame="0"] {
+  left: 0;
+  transform-origin: left;
+}
+
+.rotatorProgressFill[data-frame="1"] {
+  right: 0;
+  transform-origin: right;
+}
+
+.rotatorButtons {
+  display: flex;
+}
+
+.rotatorButtons button {
+  flex: 1;
+  background: $backgroundColor;
+  color: $link;
+  border: none;
+  border-radius: 0;
+  padding: 0.35rem 0.9rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.rotatorButtons button[aria-pressed="true"] {
+  background: $highlightedText;
+  color: $text;
+  font-weight: bold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating .rotatorItems .frame {
+    transition: none;
+  }
+}
+
+// Home page links (and .highlight text) are highlighted like the selected
+// nav tab. Inline with cloned padding so text that wraps stays highlighted
+// on every line.
+.home a,
+.home a:visited,
+.highlight,
+a.highlight:visited,
+a.highlight:hover,
+a.highlight:active {
+  color: $text;
+  font-weight: bold;
+  background: $highlightedText;
+  padding: 1px 5px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+// Opt out of the home page link highlight.
+.home .plainLinks a {
+  color: $link;
+  font-weight: normal;
+  background: none;
+  padding: 0;
 }
