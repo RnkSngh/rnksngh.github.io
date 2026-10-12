@@ -86,11 +86,15 @@ document.querySelectorAll(".rotator").forEach(function (rotator) {
     });
   }
 
-  rotator.addEventListener("mouseenter", function () {
+  // Mouse only: a tap fires an emulated enter with no matching leave,
+  // which would freeze the rotator on touch screens.
+  rotator.addEventListener("pointerenter", function (e) {
+    if (e.pointerType !== "mouse") return;
     hovered = true;
     update();
   });
-  rotator.addEventListener("mouseleave", function () {
+  rotator.addEventListener("pointerleave", function (e) {
+    if (e.pointerType !== "mouse") return;
     hovered = false;
     update();
   });

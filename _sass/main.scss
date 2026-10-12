@@ -3,6 +3,7 @@ $backgroundColor: white;
 $text: #3626a7;
 $link: salmon;
 $highlightedText: salmon;
+$fade: 70%; // strength of de-emphasized text
 
 a,
 a:visited,
@@ -13,10 +14,26 @@ a:active {
 }
 
 nav {
-  height: 2rem;
+  min-height: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 0.25rem 1rem;
+}
+
+.navToggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.navToggle[aria-expanded="true"] {
+  background: $highlightedText;
 }
 a.current {
   color: $text;
@@ -78,15 +95,22 @@ ul {
 
 .images {
   width: 30rem;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
   border: 3px dashed black;
 }
 
 .smallImage {
   width: 30rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .projectList {
-  width: min-content;
+  width: 30rem;
+  max-width: 100%;
+  padding-left: 0;
   margin: auto;
 }
 
@@ -104,6 +128,44 @@ body {
   max-width: 50rem;
   margin: auto;
   background-color: $backgroundColor;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 13pt;
+  }
+
+  body {
+    padding: 0.5rem 1rem;
+  }
+
+  .icon.fa-2x {
+    font-size: 1.6em;
+  }
+
+  nav.collapsible .navToggle {
+    display: block;
+  }
+
+  // Toggles share the top row; an open panel drops below them.
+  nav.collapsible .navPanel {
+    display: none;
+    order: 1;
+    flex-basis: 100%;
+  }
+
+  nav.collapsible .navPanel.open {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+  }
+
+  nav.collapsible .navLinks.open {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .rotatorItems > li {
@@ -131,8 +193,9 @@ body {
 }
 
 .rotatorItems .frame.crossedOff {
-  color: mix($text, gray, 40%);
-  opacity: 0.7;
+  // Faded via color rather than opacity so its pink highlights and icon
+  // stay full strength.
+  color: mix(mix($text, gray, 40%), $backgroundColor, $fade);
 }
 
 .rotating .rotatorItems > li {
@@ -149,10 +212,6 @@ body {
 .rotating .rotatorItems .frame.active {
   visibility: visible;
   opacity: 1;
-}
-
-.rotating .rotatorItems .frame.crossedOff.active {
-  opacity: 0.7;
 }
 
 .rotating .rotatorItems > li:nth-child(2) .frame {
@@ -196,7 +255,7 @@ body {
   top: 0;
   bottom: 0;
   width: 50%;
-  background: #c8c8c8;
+  background: $text;
 }
 
 .rotatorProgressFill[data-frame="0"] {
@@ -216,7 +275,7 @@ body {
 .rotatorButtons button {
   flex: 1;
   background: $backgroundColor;
-  color: $link;
+  color: mix($text, $backgroundColor, $fade);
   border: none;
   border-radius: 0;
   padding: 0.35rem 0.9rem;
