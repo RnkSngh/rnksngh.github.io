@@ -93,6 +93,11 @@ ul {
   background: $link;
 }
 
+.postDate {
+  color: darkorange;
+  font-weight: bold;
+}
+
 .images {
   width: 30rem;
   max-width: 100%;
@@ -312,6 +317,45 @@ a.highlight:active {
   padding: 1px 5px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+// Blog posts: show bullets, and tone down Rouge code blocks (which also get
+// the .highlight class) to a faint tint instead of the full highlight.
+// Salmon text on white reads lighter than a salmon block, so darken post links.
+.postBody a,
+.postBody a:visited,
+.postBody a:hover,
+.postBody a:active {
+  color: darken($link, 10%);
+}
+
+.postBody ul {
+  padding-left: 1.5rem;
+}
+
+.postBody ul > li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.postBody ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 9px;
+  height: 9px;
+  background: $link;
+}
+
+.postBody .highlight {
+  background: rgba($highlightedText, 0.15);
+  font-weight: normal;
+  padding: 0;
+}
+
+.postBody pre.highlight {
+  padding: 0.5rem 0.75rem;
 }
 
 // Opt out of the home page link highlight.
